@@ -1,4 +1,6 @@
 #przykład 1
+import math
+
 
 def witaj(imie):
     return f'dziękujemy za założenie konta: {imie}'
@@ -40,4 +42,49 @@ print(rejestracja(9)())
 #przykład 3
 
 biglista = [2*i+1 for i in range(100_000) if i%2!=0]
-print(biglista)
+# print(biglista)
+
+#przykład 4
+
+def startstop(funkcja):
+    def wrapper(*args):
+        print("startowanie procesu...")
+        funkcja(*args)
+        print("kończenie procesu...")
+    return wrapper
+
+def zawijanie(czego):
+    print(f"zawijanie {czego} w sreberka!")
+
+zw = startstop(zawijanie)
+zw("czekoladek")
+
+@startstop
+def dmuchanie(czego):
+    print(f"dmuchanie {czego} na urodzinowym torcie!")
+
+@startstop
+def f(x):
+    print(2*x)
+
+dmuchanie("świeczek")
+
+f(34)
+
+def policz(funkcja):
+    def wrapper(*args):
+        print("pdostawienie funkcji f(x)... i spierwiastkowanie jej wyniku")
+        print(f"wynik: {math.sqrt(funkcja(*args))}")
+    return wrapper
+
+
+@policz
+def suma(a,b):
+    return a+b
+
+@policz
+def podiloczyn(x,y):
+    return 2*x*y
+
+suma(5,5)
+podiloczyn(5,5)
