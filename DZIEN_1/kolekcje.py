@@ -49,3 +49,61 @@ print(f'lista team po zmianie: {team}')
 print(f'lista t1 po zmianie: {t1}')
 print(f'lista t2 po zmianie: {t2}')
 print(f'lista t3 po zmianie: {t3}')
+
+#krotka -> lista niemutowalna -> tuple
+miasta = ("Kraków","Lublin","Gdańsk","Wrocław","Kraków","Warszawa")
+
+#zbiór - set
+
+kolory = {"zielony","biały","czerwony","niebieski","brązowy","zielony"}
+print(kolory)
+print(kolory)
+print(kolory)
+
+kolory.remove("zielony")
+print(kolory)
+
+kolory.discard("burgundowy")
+print(kolory)
+
+kolory.discard("czerwony")
+print(kolory)
+
+#słownik
+osoba = {
+    "imię":"Jan",
+    "nazwisko":"Kot",
+    "wiek":56,
+    "miasto":"Rzeszów",
+    "miasto urodzenia":"Rzeszów",
+    "nazwisko":"Konot"
+}
+
+print(osoba)
+print(type(osoba))
+print(osoba["imię"])
+
+osoba["miasto"] = "Sanok"
+print(osoba)
+osoba["zawód"] ="informatyk"
+print(osoba)
+
+print(osoba.keys())
+print(osoba.values())
+print(osoba.items())
+
+print("_______________ klucze _______________")
+for x in osoba:
+    print(x)
+
+print("_______________ wartości _______________")
+for x in osoba:
+    print(osoba[x])
+
+print("_______________ wartości [values] _______________")
+for x in osoba.values():
+    print(x)
+
+print("_______________ items _______________")
+for x,y in osoba.items():
+    print(f'{x}: {y}')
