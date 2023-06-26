@@ -36,3 +36,8 @@ def rejestracja(oplata):
 print(rejestracja(1)())
 print(rejestracja(0)())
 print(rejestracja(9)())
+
+#przykład 3
+
+biglista = [2*i+1 for i in range(100_000) if i%2!=0]
+print(biglista)
