@@ -19,10 +19,23 @@ os1.print_osoba()
 print(f'czy osoba jest pracownikiem? {os1.czypracownik()}')
 
 
-class Pracownik(Osoba):
+class Firma:
+    def __init__(self,nazwa,branza,miasto):
+        self.nazwa = nazwa
+        self.branza = branza
+        self.miasto = miasto
 
-    def __init__(self, imie, wiek, waga, wzrost,stanowisko,wynagrodzenie):
-        super().__init__(imie, wiek, waga, wzrost)
+    def show_firma(self):
+        print(f"firma {self.nazwa}({self.branza}), miasto:{self.miasto}")
+
+
+
+class Pracownik(Osoba, Firma):
+
+    def __init__(self, imie, wiek, waga, wzrost, nazwa,branza,miasto,
+                 stanowisko,wynagrodzenie):
+        Osoba.__init__(self,imie, wiek, waga, wzrost)
+        Firma.__init__(self,nazwa,branza,miasto)
         self.stanowisko = stanowisko
         self.wynagrodzenie = wynagrodzenie
 
@@ -32,9 +45,10 @@ class Pracownik(Osoba):
     def czypracownik(self):
         return True
 
-pr1 = Pracownik("Olga",32,56,167,"Dyrektor",11200)
+pr1 = Pracownik("Olga",32,56,167,"ABC","IT","Kraków","Dyrektor",11200)
 pr1.print_osoba()
 pr1.print_pracownik()
+pr1.show_firma()
 print(f'czy osoba jest pracownikiem? {pr1.czypracownik()}')
-    
+
 
