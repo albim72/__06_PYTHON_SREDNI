@@ -28,8 +28,8 @@ print(gh(4,1,n=5))
 
 #przykład 3
 def ranking(*lang,nrrank,**noweargs):
-    print(f'ranking języków programowania -> pierwsze miejsce: {lang[0]}, '
+    print(f'ranking języków programowania nr {nrrank}-> pierwsze miejsce: {lang[0]}, '
           f'drugie miejsce: {lang[1]}, trzecie miejsce: {lang[2]}')
 
 ranking("Python","Java","C#",nrrank=23)
-ranking("Python","Java","Ruby","C#","JavaScript",nrrank=23)
+ranking("Python","Java","Ruby","C#","JavaScript",nrrank=27)
