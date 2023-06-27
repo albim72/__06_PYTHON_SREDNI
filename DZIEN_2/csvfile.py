@@ -12,3 +12,11 @@ with open("firma.csv",encoding='utf-8') as pc:
             line_count += 1
     print(f'dodano {line_count} linii')
     print(f'dodano {line_count-1} osób')
+
+
+with open('emp_file.csv','w',encoding='utf-8') as ef:
+    emp_writer  = csv.writer(ef,delimiter=',',quotechar='"',quoting=csv.QUOTE_MINIMAL)
+
+    emp_writer.writerow(('Karol Krot','Finanse','Luty'))
+    emp_writer.writerow(['Nadia Król','IT','Luty'])
+    emp_writer.writerow(['Olga Nowak','Finanse','Luty'])
