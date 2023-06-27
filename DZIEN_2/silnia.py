@@ -14,8 +14,17 @@ def silnia(n):
         wynik *= i
     return wynik
 
+def silnia_rek(n):
+    if n<0:
+        raise ValueError("silnia nie jest zdefiniowana dla liczb ujemnych!")
+    if n==0:
+        return 1
+    else:
+        return n*silnia_rek(n-1)
+
 try:
     n = int(input("podaj wartość argumentu n funkcji silnia: "))
     print(f'wynik funkcji silnia dla n={n} wynosi: {silnia(n)}')
+    print(f'wynik funkcji rekurencyjnej -> silnia dla n={n} wynosi: {silnia_rek(n)}')
 except ValueError as info:
     print(info)
