@@ -1,7 +1,9 @@
 import sys
 
 sys.set_int_max_str_digits(0x1000000)
+sys.setrecursionlimit(0x1000000)
 
+print(sys.version)
 #funkcja silnia n!=1*2*3*...*n dla n>=0
 #double -> max: 1.8E+308, min 2.4E-324
 #n??? n=171
