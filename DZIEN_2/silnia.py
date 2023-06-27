@@ -1,4 +1,5 @@
 import sys
+from silniaerr import SilniaError
 
 sys.set_int_max_str_digits(0x1000000)
 sys.setrecursionlimit(0x1000000)
@@ -10,7 +11,7 @@ print(sys.version)
 
 def silnia(n):
     if n<0:
-        raise ValueError("silnia nie jest zdefiniowana dla liczb ujemnych!")
+        raise SilniaError(n)
     wynik = 1
     for i in range(1,n+1):
         wynik *= i
@@ -18,7 +19,7 @@ def silnia(n):
 
 def silnia_rek(n):
     if n<0:
-        raise ValueError("silnia nie jest zdefiniowana dla liczb ujemnych!")
+        raise SilniaError(n)
     if n==0:
         return 1
     else:
@@ -28,5 +29,5 @@ try:
     n = int(input("podaj wartość argumentu n funkcji silnia: "))
     print(f'wynik funkcji silnia dla n={n} wynosi: {silnia(n)}')
     print(f'wynik funkcji rekurencyjnej -> silnia dla n={n} wynosi: {silnia_rek(n)}')
-except ValueError as info:
+except SilniaError as info:
     print(info)
