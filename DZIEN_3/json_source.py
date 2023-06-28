@@ -29,3 +29,12 @@ with open("auto.json","r",encoding="utf-8") as f:
 print(auto_dict)
 print(type(auto_dict))
 
+print("_________________________________________________")
+
+info = '{"organizacja":"Fundacja BIOTECH","miasto":"Lublin","kraj":"Polska"}'
+projekt = {"id":674,"temat":"Innowacyjne technologie AI","kwota":12456000}
+
+z = json.loads(info)
+z.update(projekt)
+info_new = json.dumps(z, indent=4)
+print(info_new)
