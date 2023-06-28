@@ -65,3 +65,8 @@ klima.text = 'RWEF8678657'
 
 pod = SubElement(wyp_dod,'poduszki')
 pod.text = '4'
+
+print(pretty(top))
+
+with open("subaru_komis.xml","a",encoding="utf-8") as f:
+    f.write(pretty(top))
