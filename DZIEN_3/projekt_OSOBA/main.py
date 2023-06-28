@@ -1,3 +1,9 @@
+import os
+
+if os.path.exists("bmi.txt"):
+    os.remove("bmi.txt")
+else:
+    print("plik nie istnieje! Zostanie utworzony nowy")
 class Osoba:
     def __init__(self,imie,nazwisko,wiek,waga,wzrost):
         self.imie = imie
@@ -5,11 +11,11 @@ class Osoba:
         self._wiek = wiek
         self._waga = waga
         self._wzrost = wzrost
-    
+
     @property
     def wiek(self):
         return self._wiek
-    
+
     @wiek.setter
     def wiek(self,lata):
         self._wiek = lata
@@ -29,5 +35,32 @@ class Osoba:
     @wzrost.setter
     def wiek(self, cm):
         self._wzrost = cm
-    
-    
+
+    @property
+    def bmi(self):
+        return self.waga/(self.wzrost/100)**2
+
+
+os1 = Osoba("Jan","Kot",66,98,176)
+print(f'Osoba: {os1.imie} {os1.nazwisko}')
+print(f'bmi ciała: {os1.bmi:.2f}')
+with open("bmi.txt","a",encoding="utf-8") as f:
+    f.write(str(os1.bmi) + "\n")
+
+os1.waga = 91
+print(f'bmi ciała: {os1.bmi:.2f}')
+with open("bmi.txt","a",encoding="utf-8") as f:
+    f.write(str(os1.bmi) + "\n")
+
+os1.waga = 82
+print(f'bmi ciała: {os1.bmi:.2f}')
+with open("bmi.txt","a",encoding="utf-8") as f:
+    f.write(str(os1.bmi) + "\n")
+
+
+os1.waga = 79
+print(f'bmi ciała: {os1.bmi:.2f}')
+with open("bmi.txt","a",encoding="utf-8") as f:
+    f.write(str(os1.bmi) + "\n")
+
+
